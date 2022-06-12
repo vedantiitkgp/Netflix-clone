@@ -1,7 +1,7 @@
 import { PlusIcon, ThumbUpIcon, VolumeOffIcon, VolumeUpIcon, XIcon } from "@heroicons/react/solid";
 import MuiModal from "@mui/material/Modal"
 import { useEffect, useState } from "react";
-import { FaPlay } from "react-icons/fa";
+import { FaPause, FaPlay } from "react-icons/fa";
 import ReactPlayer from "react-player";
 // import ReactPlayer from "react-player/lazy";
 import { useRecoilState} from "recoil"
@@ -14,6 +14,7 @@ function Modal() {
     const [trailer, setTrailer] = useState('');
     const [genres, setGenres] = useState<Genre[]>([])
     const [muted, setMuted] = useState(true);
+    const [playing, setPlaying] = useState(true);
     const handleClose = () =>{
         setShowModal(false);
     }
@@ -47,14 +48,23 @@ function Modal() {
                         width="100%"
                         height="100%"
                         style={{ position: 'absolute', top: '0', left: '0' }}
-                        playing
+                        playing = {playing}
                         muted={muted}
                     />
-                    <div className="absolute bottom-10 flex w-full items-center justify-between px-10">
+                    <div className="absolute bottom-10 flex w-full justify-between px-10">
                         <div className="flex space-x-2">
-                            <button className="flex items-center gap-x-2 rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]">
-                                <FaPlay className="h-7 w-7 text-black"/>
-                                Play
+                            <button className="rounded bg-white px-8 text-xl font-bold text-black transition hover:bg-[#e6e6e6]" onClick={()=> setPlaying(!playing)}>
+                                {playing ? (
+                                    <div className="flex items-center gap-x-2 ">
+                                        <FaPause className="h-7 w-7 text-black"/>
+                                        Pause
+                                    </div>
+                                ):(
+                                    <div className="flex items-center gap-x-2 ">
+                                        <FaPlay className="h-7 w-7 text-black"/>
+                                        Play
+                                    </div>
+                                )}
                             </button>
                             <button className="modalButton">
                                 <PlusIcon className="h-7 w-7" />
