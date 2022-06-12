@@ -2,7 +2,8 @@ import { PlusIcon, ThumbUpIcon, VolumeOffIcon, VolumeUpIcon, XIcon } from "@hero
 import MuiModal from "@mui/material/Modal"
 import { useEffect, useState } from "react";
 import { FaPlay } from "react-icons/fa";
-import ReactPlayer from "react-player/lazy";
+import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player/lazy";
 import { useRecoilState} from "recoil"
 import { modalState, movieState } from "../atoms/modalAtom"
 import { Element, Genre } from "../typing";
