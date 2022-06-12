@@ -19,6 +19,13 @@ function Modal() {
         setShowModal(false);
     }
 
+    const onPlay = () => {
+        setPlaying(true);
+    }
+    const onPause = () =>{
+        setPlaying(false);
+    }
+
     useEffect(()=>{
         if(!movie) return;
         async function fetchMovie(){
@@ -49,6 +56,9 @@ function Modal() {
                         height="100%"
                         style={{ position: 'absolute', top: '0', left: '0' }}
                         playing = {playing}
+                        controls = {false}
+                        onPlay = {onPlay}
+                        onPause = {onPause}
                         muted={muted}
                     />
                     <div className="absolute bottom-10 flex w-full justify-between px-10">

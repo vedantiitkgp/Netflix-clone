@@ -1,4 +1,4 @@
-import { ChevronLeftIcon } from "@heroicons/react/outline"
+import { ChevronLeftIcon } from "@heroicons/react/solid"
 import { ChevronRightIcon } from "@heroicons/react/solid"
 import { useRef, useState } from "react"
 import { Movie } from "../typing"
